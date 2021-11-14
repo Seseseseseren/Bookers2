@@ -1,0 +1,23 @@
+<h1>User info</h1>
+<div>
+  <p><%= attachment_image_tag profile_image.user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg" %></p>
+  <p>name：<%=@user.name%></p>
+  <p>introduction：<% =%></p>
+ <%#上の中に何が入るかわからん%>
+  <p><%= link_to "", edit_user_path(@user) %></p>
+ <%#これは Font Awesome利用するの？
+ https://qiita.com/fumi238000/items/99dd5643f40457c25e21%>
+
+<%= paginate @profile_images %>
+
+<%= form_with model:@book,local:true do |f| %>
+ <div class = 'New-book'>
+  <h4>Title</h4>
+  <%= f.text_field :title %>
+  <h4>Opinion</h4>
+  <%= f.text_area :opnion %>
+
+  <%= f.submit 'Create Book', class: "button" %>
+  </div>
+  
+<% end %>
