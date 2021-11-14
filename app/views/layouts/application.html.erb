@@ -12,17 +12,38 @@
   <body>
 
     <% if user_signed_in? %>
-    
+    <%#<li>
+       <%= link_to "Bookers",home?
+       </li>
+      <li> 
+       <%= link_to "Home",show?
+      </li>
+      <li>
+       <%= link_to "Users", show
+      </li>
+      <li>
+       <%= link_to "Books", book show
+      </li>
+      %>
       <li>
         <%= link_to "Log out", destroy_user_session_path, method: :delete %>
       </li>
     <% else %>
-      <li>
-        <%= link_to "Sign up", new_user_registration_path %>
-      </li>
-      <li>
-        <%= link_to "Log in", new_user_session_path %>
-      </li>
+    <%#<li>
+       <%= link_to "Bookers",home?
+    </li>
+    <li>
+      <%= link_to "Home",root to?
+    </li>
+    <<li>
+       <%= link_to "about", about
+    </li>%> 
+    <li>
+      <%= link_to "Sign up", new_user_registration_path %>
+    </li>
+    <li>
+      <%= link_to "Log in", new_user_session_path %>
+    </li>
     <% end %>
       <%= yield %>
   </body>
