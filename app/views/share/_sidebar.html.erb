@@ -1,14 +1,12 @@
 <h1>User info</h1>
-<div>
   <p><%= attachment_image_tag profile_image.user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg" %></p>
   <p>name：<%=@user.name%></p>
-  <p>introduction：<% =%></p>
- <%#上の中に何が入るかわからん%>
-  <p><%= link_to "", edit_user_path(@user) %></p>
- <%#これは Font Awesome利用するの？
- https://qiita.com/fumi238000/items/99dd5643f40457c25e21%>
+  <p>introduction：<%@user.Introduction%></p>
+  <p><%= link_to edit_user_path(@user) %>
+  <i class="fas fa-user-cog"></i>
+  </p>
 
-<%= paginate @profile_images %>
+<%= paginate @Profile_images %>
 
 <%= form_with model:@book,local:true do |f| %>
  <div class = 'New-book'>
