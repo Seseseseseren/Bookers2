@@ -1,25 +1,26 @@
 <main>
-        <p id="notice"></p>
-        <div class="container">
-  <div class="row">
-    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
-  
+
+  <div class="container">
+   <div class="row">
+    <div class= "col-sm-12 col-md-8 col-lg-5 px-7 px-sm-0 mx-auto ">
+
+     <h2>User info</h2>
+
   <% if @user.errors.any? %>
-  <%= @user.errors.count %>error
-  <% @user.errors.full_messages.each do |message| %>
-    <%= message %>
+   <p class='error-messages'><%= @user.errors.count %>errors prohibited this obj from being saved:<br></p>
+    <% @user.errors.full_messages.each do |message| %>
+    <li class='devise-error-messages'><%= message %></li>
   <% end %>
 <% end %>
-  
-  <h2 class="mt-3">User info</h2>
+
   <%= form_with model:@user,local:true do |f| %>
   <h4>Name</h4>
-  <%= f.text_field :name %>
+  <%= f.text_field :name,size: "50x50" %>
   <h4>Image</h4>
   <%= f.attachment_field :profile_image %>
   <h4>Introduction</h4>
-  <%= f.text_area :introduction %><br>
-  <%= f.submit 'Update User',class:'button' %>
+  <%= f.text_area :introduction,size: "50x3" %><br>
+  <%= f.submit 'Update User',class:'btn btn-info btn-sm' %>
   <% end %>
 
 </div>

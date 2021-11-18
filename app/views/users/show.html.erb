@@ -1,70 +1,33 @@
 <main>
+
   <p id="notice"></p>
   <div class="container px-5">
     <div class="row">
       <div class="col-md-3">
-     <h2>User info</h2>
-  <p><%= attachment_image_tag @user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg",size:'64x64' %></p>
-  <table class="table">
-  <tbody><tr></tr>
-  <tr>
-	  <th>name</th>
-	  <th><%=@user.name%></th>
-  </tr>
-  <tr>
-	  <th>introduction</th>
-	  <th><%=@user.introduction%></th>
-  </tr>
-</tbody>
-</table>
+    <%= render 'share/sidebar', user: @user, book: @book %>
 
-    <div class="row">
-      <%= link_to "",edit_user_path(@user),class:"fas fa-user-cog btn btn-outline-secondary btn-block " %></p>
-    </div>
+     <div class="col-md-8 offset-md-1">
+       <table class="table table-hover table-inverse">
+         <h2>Books</h2>
+         <thead>
+           <tr>
+             <th></th>
+             <th>Title</th>
+             <th>Opinion</th>
+             <th colspan="3"></th>
+           </tr>
 
-
-  <% if @book.errors.any? %>
-  <%= @book.errors.count %>error
-  <% @book.errors.full_messages.each do |message| %>
-    <%= message %>
-  <% end %>
-<% end %>
-
-  <%= form_with model:@book,local:true do |f| %>
-  <h2 class="mt-3">New book</h1>
-  <h4>Title</h4>
-  <%= f.text_field :title %>
-  <h4>Opinion</h4>
-  <%= f.text_area :body %>
-
-  <%= f.submit 'Create Book', class: "button" %>
-  <% end %>
-  
-       </div>
-  <div class="col-md-8 offset-md-1">
-      <h2>Books</h2>
-      <table class="table table-hover table-inverse">
-  <thead>
+    <% @books.each do |book| %>
     <tr>
-      <th></th>
-      <th>Title</th>
-      <th>Opinion</th>
-      <th colspan="3"></th>
-    </tr>
-     <% @books.each do |book| %>
-     <!--その人個人の本を取り出す事ができない-->
-	  	  	<tr>
-	  	  	  <th><%= attachment_image_tag @user, :profile_image, :fill, 50, 50,fallback: "no_image.jpg",size:'40x40' %></th>
-	  	  	  <th><%= link_to book.title,book_path(book.id) %></th>
-	  	  	  <th><%= book.body %></th>
-	  	  	</tr>
-  	    <%end %>
-  </thead>
-  <tbody>
-  </tbody>
-</table>
+      <th><%= link_to (attachment_image_tag @user, :profile_image, :fill, 50, 50,fallback: "no_image.jpg",size:'40x40'),user_path(@user.id) %></th>
+	  	<th><%= link_to book.title,book_path(book.id) %></th>
+	  	<th><%= book.body %></th>
+	  	</tr>
+  	<% end %>
+     </thead>
+     </table>
     </div>
-
-    </div>
+   </div>
   </div>
+ </div>
 </main>

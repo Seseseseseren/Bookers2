@@ -14,3 +14,14 @@
  *= require_self
  */
 @import "bootstrap";
+
+#notice {
+  color: green;
+}
+.error_messages {
+  color: red;
+}
+
+.devise_error_messages {
+  color: red;
+}

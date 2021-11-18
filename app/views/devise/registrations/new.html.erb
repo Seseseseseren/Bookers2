@@ -1,3 +1,5 @@
+<div class="container" style="margin-top: 70px">
+
 <h2>Sign up</h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
@@ -25,9 +27,9 @@
     <%= f.label :password_confirmation %><br />
     <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
   </div>
-
+  <br>
   <div class="actions">
-    <%= f.submit "Sign up" %>
+    <%= f.submit "Sign up",class: 'btn btn-success btn-sm' %>
   </div>
 <% end %>
 
